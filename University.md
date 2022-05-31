@@ -4,58 +4,65 @@
 
 ## DEPARTMENTS
 
-id:
-name:
-description:
-places_available:
-access examination: TINYINT DEFAULT('YES')
+id: PK NOTNULL UNIQUE INDEX AUTOINCREMENTAL
+name: VARCHAR(25) NOTNULL INDEX
+description: TEXT NULL
+?degree_courses?
 
 ## DEGREE_COURSES
 
-id:
-name:
-course:
+id: PK NOTNULL UNIQUE INDEX AUTOINCREMENTAL
+name: VARCHAR(25) NOTNULL INDEX
+places_available: SMALLINT NULL
+access examination: TINYINT DEFAULT('YES')
 ?teacher?
 ?exam_appeals?
 
 ## TEACHERS
 
-id:
-name:
-lastname:
-age:
-?subjects?
+id: PK NOTNULL UNIQUE INDEX AUTOINCREMENTAL
+name: VARCHAR(30) NOTNULL INDEX
+lastname: VARCHAR(30) NOTNULL INDEX
+age: TINYINT NULL
+email: VARCHAR(50) NULL UNIQUE
+telephon: VARCHAR(15) NULL UNIQUE
+addres: VARCHAR(50) NULL UNIQUE
+?courses?
 
-## SUBJECTS
+## COURSES
 
-id:
-name:
+id: PK NOTNULL UNIQUE INDEX AUTOINCREMENTAL
+name: VARCHAR(30) NOTNULL INDEX
+subject: VARCHAR(30) NOTNULL INDEX
 
 ## EXAM_APPEALS
 
-id:
-name:
+id: PK NOTNULL UNIQUE INDEX AUTOINCREMENTAL
+date: DATETIME NOTNULL
+places_available: SMALLINT NOTNULL
 ?teacher?
 
 ## EXAM
 
-id:
-credits:
+id: PK NOTNULL UNIQUE INDEX AUTOINCREMENTAL
+name: VARCHAR(30) NOTNULL INDEX
+credits: TINYINT NULL
 
 ## VOTES
 
-id:
-positive:
-negative:
+id: PK NOTNULL UNIQUE INDEX AUTOINCREMENTAL
+positive: TINYINT NOTNULL
+negative: TINYINT NOTNULL
 ?exam_appeals?
 
 ## STUDENTS
 
-id:
-name:
-lastname:
-age:
-email:
-telephon:
-addres:
+id: PK NOTNULL UNIQUE INDEX AUTOINCREMENTAL
+serial_number: MEDIUMINT NOTNULL UNIQUE INDEX
+name: VARCHAR(30) NOTNULL INDEX
+lastname: VARCHAR(30) NOTNULL INDEX
+age: TINYINT NULL
+email: VARCHAR(50) NULL UNIQUE
+telephon: VARCHAR(15) NULL UNIQUE
+addres: VARCHAR(50) NULL UNIQUE
 ?degree_courses?
